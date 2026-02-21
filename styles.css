@@ -255,3 +255,23 @@ a:hover{ text-decoration:none; }
   .nav{ padding:12px 16px; }
   .container{ padding:18px; }
 }
+
+.more-projects {
+  margin-top: 20px;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.more-projects-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
