@@ -1,1035 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Khush Domadiya — Portfolio</title>
-    <meta name="description"
-        content="Portfolio of Khush Domadiya — CAPM® and Business Analytics MS student at CSU East Bay." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --card: #f7f8fa;
-            --text: #0f172a;
-            --muted: #475569;
-            --accent: #2563eb;
-            --line: #e5e7eb;
-            --ring: rgba(37, 99, 235, .25);
-            --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 4px 24px rgba(15, 23, 42, .06);
-            --radius: 14px;
-            --maxw: 1040px;
-        }
+    <meta
+      name="description"
+      content="Portfolio of Khush Domadiya — CAPM® and Business Analytics MS student at CSU East Bay."
+    />
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
-        }
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            width: 100%;
-            max-width: var(--maxw);
-            margin: 0 auto;
-            padding: 24px;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            backdrop-filter: saturate(180%) blur(8px);
-            background: rgba(255, 255, 255, .8);
-            border-bottom: 1px solid var(--line);
-            z-index: 10;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            max-width: var(--maxw);
-            margin: 0 auto;
-            padding: 14px 24px;
-        }
-
-        .brand {
-            font-weight: 700;
-            letter-spacing: .2px;
-        }
-
-        .nav a {
-            color: var(--muted);
-            font-weight: 500;
-            padding: 8px 10px;
-            border-radius: 10px;
-        }
-
-        .nav a:hover {
-            background: var(--card);
-            text-decoration: none;
-        }
-
-        main {
-            padding-top: 24px;
-        }
-
-        /* About */
-        .about {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 24px;
-            align-items: center;
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 14px;
-            object-fit: cover;
-            border: 1px solid var(--line);
-        }
-
-        .about h1 {
-            margin: 0 0 8px;
-            font-size: clamp(24px, 3vw, 32px);
-        }
-
-        .about p {
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .badges {
-            margin-top: 12px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: #eef2ff;
-            color: #3730a3;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 12px;
-            border: 1px solid #e0e7ff;
-        }
-
-        /* Sections */
-        section {
-            margin-top: 40px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin: 0 0 14px;
-        }
-
-        .section-card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 20px;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            margin-left: 0;
-            padding-left: 28px;
-            /* space for the centered line + dot */
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 18px;
-            /* controls the line’s x-position */
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--line);
-        }
-
-        .t-item {
-            position: relative;
-            padding: 12px 0;
-            /* slightly tighter spacing */
-        }
-
-        .t-item::before {
-            content: "";
-            position: absolute;
-            left: 18px;
-            /* same as line so it's centered */
-            top: 24px;
-            /* vertical position relative to item */
-            width: 10px;
-            /* smaller bubble */
-            height: 10px;
-            transform: translate(-50%, -50%);
-            /* centers dot on the line */
-            border-radius: 50%;
-            background: #fff;
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 0 2px #fff;
-            /* optional halo to separate from line */
-        }
-
-        .t-card {
-            margin-left: 18px;
-            /* space so card doesn’t overlap the dot */
-            padding: 12px 14px;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-
-        .t-title {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: baseline;
-        }
-
-        .role {
-            font-weight: 600;
-        }
-
-        .org {
-            color: var(--muted);
-        }
-
-        .meta {
-            margin-left: auto;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .t-desc {
-            color: var(--muted);
-            margin-top: 8px;
-        }
-
-        ul.compact {
-            margin: 8px 0 0 18px;
-            color: var(--muted);
-        }
-
-        /* Projects grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        @media (max-width: 980px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about {
-                grid-template-columns: 120px 1fr;
-            }
-
-            .avatar {
-                width: 120px;
-                height: 120px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about .meta-wrap {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .badges {
-                justify-content: center;
-            }
-        }
-
-        .p-card {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .p-body {
-            padding: 16px;
-        }
-
-        .p-title {
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .p-tags {
-            margin-top: 8px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-size: 12px;
-            background: #f1f5f9;
-            color: #334155;
-            padding: 4px 8px;
-            border-radius: 999px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .p-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--line);
-            background: var(--card);
-            color: var(--text);
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .btn:hover {
-            border-color: #cbd5e1;
-        }
-
-        .btn.primary {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-
-        details.p-details {
-            border-top: 1px solid var(--line);
-            background: #fcfcfd;
-        }
-
-        details.p-details>summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 12px 16px;
-            color: var(--muted);
-            font-weight: 600;
-        }
-
-        details.p-details>summary::-webkit-details-marker {
-            display: none;
-        }
-
-        details[open].p-details>summary {
-            color: var(--accent);
-        }
-
-        .p-content {
-            padding: 0 16px 16px 16px;
-            color: var(--muted);
-        }
-
-        /* Contact */
-        .contact {
-            display: grid;
-            gap: 10px;
-        }
-
-        .link-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .pill {
-            padding: 10px 12px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: #fff;
-            box-shadow: var(--shadow);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* Focus rings */
-        :focus-visible {
-            outline: 3px solid var(--ring);
-            outline-offset: 2px;
-            border-radius: 8px;
-        }
-
-        /* Footer */
-        footer {
-            color: var(--muted);
-            font-size: 14px;
-            padding: 24px 0;
-            border-top: 1px solid var(--line);
-            margin-top: 40px;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <nav class="nav">
-            <div class="brand">Khush Domadiya</div>
-            <div>
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="brand">Khush Domadiya</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </header>
 
     <main class="container">
-        <!-- About -->
-        <section id="about" class="about">
-            <img class="avatar" src="images/headshot.jpg" alt="Headshot of Khush Domadiya">
-            <div class="meta-wrap">
-                <h1>Khush Domadiya</h1>
-                <p>
-                    Certified Associate in Project Management (CAPM®) and M.S. Business Analytics student at CSU East
-                    Bay. I blend product thinking with analytics and software skills to drive user-centered
-                    solutions from defining requirements and acceptance criteria to building Python data pipelines and
-                    insightful dashboards. Passionate about shipping high‑quality experiences with data‑driven decisions
-                    and clear communication.
-                </p>
-                <div class="badges">
-                    <span class="badge">CAPM®</span>
-                    <span class="badge">Project Management</span>
-                    <span class="badge">Business Analytics (MS)</span>
-                    <span class="badge">Python • SQL • Tableau</span>
-                </div>
-            </div>
-        </section>
+      <!-- ABOUT -->
+      <section id="about" class="about card">
+        <img class="avatar" src="images/headshot.jpg" alt="Headshot of Khush Domadiya" />
+        <div>
+          <h1 class="h1">Khush Domadiya</h1>
+          <p class="lead">
+            Certified Associate in Project Management (CAPM®) and M.S. Business Analytics student at CSU East Bay.
+            I combine project coordination + analytics to ship clear, user-centered outcomes: requirements, delivery
+            tracking, dashboards, and automation.
+          </p>
 
-        <!-- Experience -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="section-card">
-                <div class="timeline">
-                    <!-- Most recent first -->
-                    <div class="t-item">
-                        <div class="t-card">
-                            <div class="t-title">
-                                <span class="role">Web Development Business Analyst Intern</span>
-                                <span class="org">• American Chemical Society — Washington, D.C.</span>
-                                <span class="meta">May 2025 – Aug 2025</span>
-                            </div>
-                            <ul class="compact">
-                            </ul>
-                        </div>
-                    </div>
+          <div class="chips">
+            <span class="chip">CAPM®</span>
+            <span class="chip">PMO / Project Coordination</span>
+            <span class="chip">Business Analytics (MS)</span>
+            <span class="chip">Python • SQL • Tableau</span>
+          </div>
 
-                    <div class="t-item">
-                        <div class="t-card">
-                            <div class="t-title">
-                                <span class="role">Studeent Assistant</span>
-                                <span class="org">• California State University Eastbay — Hayward, CA</span>
-                                <span class="meta">September 2024 – Present</span>
-                            </div>
-                            <ul class="compact">
-                            </ul>
-                        </div>
-                    </div>
+          <div class="quick-links">
+            <a class="btn primary" href="assets/Resume.pdf" target="_blank" rel="noopener">Resume</a>
+            <a class="btn" href="https://www.linkedin.com/in/khush-domadiya" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/Khush-domadia" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
 
-                    <div class="t-item">
-                        <div class="t-card">
-                            <div class="t-title">
-                                <span class="role">Python Analyst Intern</span>
-                                <span class="org">• Axisray — India</span>
-                                <span class="meta">Jan 2024 – May 2024</span>
-                            </div>
-                            <ul class="compact">
-                            </ul>
-                        </div>
-                    </div>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section">
+        <div class="section-head">
+          <h2 class="h2">Experience</h2>
+          <p class="muted">Most recent first. Focused on impact + tools.</p>
+        </div>
 
-                    <div class="t-item">
-                        <div class="t-card">
-                            <div class="t-title">
-                                <span class="role">Data Science & Machine Learning Intern</span>
-                                <span class="org">• BrainyBeams — India</span>
-                                <span class="meta">Jul 2023 – Aug 2023</span>
-                            </div>
-                            <ul class="compact">
-                            </ul>
-                        </div>
-                    </div>
+        <div id="experienceList" class="timeline card"></div>
+      </section>
 
-                    <div class="t-item">
-                        <div class="t-card">
-                            <div class="t-title">
-                                <span class="role">Web Development Intern</span>
-                                <span class="org">• Way‑to‑Web Technologies — India</span>
-                                <span class="meta">May 2023 – Jun 2023</span>
-                            </div>
-                            <ul class="compact">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="section-head projects-head">
+          <div>
+            <h2 class="h2">Projects</h2>
+            <p class="muted">Uniform cards. Details open in a modal (no grid shifting).</p>
+          </div>
 
-        <!-- Projects -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="grid">
+          <div class="project-controls">
+            <label class="sr-only" for="projectSearch">Search projects</label>
+            <input id="projectSearch" class="search" placeholder="Search projects (title, tag)..." />
+          </div>
+        </div>
 
-                <!-- Project 1 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">PMO Delivery Health Dashboard (Tableau)</h3>
-                        <p class="t-desc">A Tableau-based PMO dashboard for tracking portfolio health, sprint delivery performance, risks/issues, milestones, and cross-team dependencies.</p>
-                        <div class="p-tags">
-                            <span class="tag">Tableau</span><span class="tag">RAG</span><span class="tag">Milestones</span><span class="tag">Sprint Plan Vs Actuals</span><span class="tag">RAID Log Aging</span>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            Built an executive-ready PMO portfolio dashboard (tech product delivery theme) to improve delivery transparency and governance. 
-                            Modeled project, sprint, work-item, milestone, RAID, and dependency datasets into a KPI framework with clear metric definitions and data dictionary. 
-                            Created interactive views for portfolio RAG status, milestone tracking, sprint plan vs completed trends, defect monitoring, RAID aging, and blocked dependency analysis. 
-                            Designed filters and drilldowns (team/program/project) to support stakeholder communication, escalation, and process improvement decisions.
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/Data_Dictionary.pdf" target="_blank"
-                                rel="noopener">Data Dictionary</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/KPI_Definitions.pdf" target="_blank"
-                                rel="noopener">KPI Definitions</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/Executive_Insights_Memo.pdf" target="_blank"
-                                rel="noopener">Executive Insights Memo</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/Tableau_project.twb" target="_blank"
-                                rel="noopener">Tableau Dashboard File</a>
-                            </div>
-                            <div class="p-actions">
-                                <a class="btn primary" 
-                                   href="https://public.tableau.com/app/profile/khush.domadiya5696/viz/Tableau_project_17699269588030/DB_Delivery_Performance?publish=yes" 
-                                   target="_blank" 
-                                   rel="noopener">
-                                    Delivery Performance Dashboard
-                                </a>
-                            </div>
+        <div id="projectsGrid" class="grid"></div>
+      </section>
 
-                            <div class="p-actions">
-                                <a class="btn primary" 
-                                   href="https://public.tableau.com/app/profile/khush.domadiya5696/viz/Tableau_project_D1/DB_Executive_Overview?publish=yes" 
-                                   target="_blank" 
-                                   rel="noopener">
-                                    Executive Overview Dashboard
-                                </a>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-                
-                <!-- Project 2 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">PMO Project Pack – Scholarship Portal (Non-Profit)</h3>
-                        <p class="t-desc">End-to-end PMO artifact pack for a non-profit scholarship portal, 
-                            demonstrating practical skills in project planning, governance, risk management, 
-                            and delivery tracking from initiation through post-lau</p>
-                        <div class="p-tags">
-                            <span class="tag">Project Charter</span><span class="tag">Business Case</span><span class="tag">Stakeholder 
-                                Register + RACI</span><span class="tag">Communication Plan</span><span class="tag">RAID Log</span><span
-                                class="tag">Dependency Tracker</span><span class="tag">Integrated Timeline</span>
-                                <span class="tag">Weekly Status Report</span>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details (Click here for Artifacts)</summary>
-                        <div class="p-content">
-                            End-to-end PMO artifact set for a fictional non-profit scholarship management portal,
-                            showcasing how I think like a project manager and business analyst. 
-                            The pack includes a project charter, business case lite (options, value, tradeoffs), 
-                            stakeholder register & RACI, communication plan, RAID log, dependency tracker, 
-                            integrated Gantt timeline, weekly status reports, and change log for scope control. 
-                            Together, these artifacts demonstrate my ability to structure initiatives, manage risk, 
-                            and drive delivery from discovery through post-launch.
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="section-head">
+          <h2 class="h2">Contact</h2>
+          <p class="muted">Open to full-time roles and internships.</p>
+        </div>
 
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/PMO_Pack_Story_Background.pdf" target="_blank"
-                                rel="noopener">Project Background</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/01_Project_Charter.pdf" target="_blank"
-                                rel="noopener">Project Charter</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/02_Business_Case.pdf" target="_blank"
-                                rel="noopener">Business Case</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/03_Stakeholder_Register.pdf" target="_blank"
-                                rel="noopener">03_Stakeholder_Register.pdf</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/04_Communication_Plan.pdf" target="_blank"
-                                rel="noopener">Communication Plan</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/05_RAID_Log.xlsx" target="_blank"
-                                rel="noopener">RAID Log</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/06_Dependency_Tracker.xlsx" target="_blank"
-                                rel="noopener">Dependency Tracker</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/07_Timeline_Gantt.pdf" target="_blank"
-                                rel="noopener">Integrated Timeline</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/08_Status_Report_Template.pdf" target="_blank"
-                                rel="noopener">Weekly Status Report Template</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/09_Status_Report_Week1.pdf" target="_blank"
-                                rel="noopener">Weekly Status Report - Week1</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/10_Status_Report_Week2.pdf" target="_blank"
-                                rel="noopener">Weekly Status Report - Week2</a>
-                            </div>
-                            <div class="p-actions">
-                            <a class="btn primary" href="assets/11_Change_Log.pdf" target="_blank"
-                                rel="noopener">Change Log</a>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-                <!-- Project 3 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Onboarding/Wayfinding - Internship Project</h3>
-                        <p class="t-desc">I was Project Manager(PM) for this project and contirbuted in end-to-end
-                            delivery of the project.</p>
-                        <div class="p-tags">
-                            <span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Adobe
-                                AEM</span><span class="tag">Figma</span><span class="tag">Slack</span><span
-                                class="tag">Winscp</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="assets/wayfinding case study.pdf" target="_blank"
-                                rel="noopener">Case Study</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            During my internship, I led the ACS Wayfinding/Onboarding project, focused on improving
-                            member navigation, benefit
-                            visibility, and retention by delivering a streamlined MVP onboarding solution. Through this
-                            project, I gained hands-on
-                            experience in project management, agile methodology (hybrid Scrum), sprint planning,
-                            stakeholder engagement,
-                            Jira/Confluence management, QA testing, and cross-functional collaboration. This experience
-                            strengthened my skills in
-                            managing complex digital initiatives, aligning stakeholders, and delivering impactful
-                            user-centered solutions
-                        </div>
-                    </details>
-                </article>
+        <div class="card contact">
+          <div class="contact-row">
+            <a class="pill" href="mailto:domadiyakhush05@gmail.com">domadiyakhush05@gmail.com</a>
+            <a class="pill" href="assets/Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+            <a class="pill" href="https://www.linkedin.com/in/khush-domadiya" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="pill" href="https://github.com/Khush-domadia" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
 
-                <!-- Project 4 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">ACS Meetings App Research & Strategy – Internship Project</h3>
-                        <p class="t-desc">Researched end-to-end attendee experience, benchmarked competitors, and
-                            delivered actionable insights to improve ACS’s
-                            Meetings App usability, navigation, and onboarding.</p>
-                        <div class="p-tags">
-                            <span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">User
-                                Research</span><span class="tag">Figma</span><span class="tag">Journey
-                                Mapping</span><span class="tag">Competitive Bechmarking</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="assets/ACS Meetings APP case study.pdf" target="_blank"
-                                rel="noopener">Case Study</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            During my internship at ACS, I conducted extensive user research and competitive analysis to
-                            evaluate and improve the
-                            ACS Meetings App. My work included competitor benchmarking, attendee journey mapping,
-                            affinity/thematic analysis, and
-                            persona development. I delivered insights on key pain points such as navigation, onboarding,
-                            and app usability, and
-                            provided actionable recommendations like interactive venue maps, better filtering, and
-                            networking features. These
-                            findings were shared through detailed reports, presentations, and visual journey maps,
-                            forming the foundation for
-                            strategic improvements to the app experience
-
-                            <div class="p-actions">
-                                <a class="btn primary" href="assets/ACS Meetings APP case study.pdf" target="_blank" rel="noopener">Case Study</a>
-                            </div>
-                            <!--- updated in github-->
-                        </div>
-                    </details>
-                </article>
-
-
-                <!-- Project 5 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">NCDC Data Map Reducing Project</h3>
-                        <p class="t-desc">In this project I have used NCDC data, used Map reducer job on the data.</p>
-                        <div class="p-tags">
-                            <span class="tag">Python</span><span class="tag">Java</span><span
-                                class="tag">Hadoop</span><span class="tag">Spark</span><span
-                                class="tag">Putty</span><span class="tag">Winscp</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="https://github.com/Khush-domadia/NCDC-Map-Reducing-Project"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            This project implements a comprehensive big data analysis pipeline for processing National
-                            Climatic Data Center (NCDC)
-                            weather records using Apache Hadoop ecosystem tools. The project demonstrates end-to-end big
-                            data processing from raw
-                            weather data extraction to statistical analysis using MapReduce, Pig, and Hive technologies.
-                            The system processes
-                            historical temperature data spanning from 1930 onwards to extract meaningful insights about
-                            temperature patterns and
-                            trends.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 6 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Data Modeling</h3>
-                        <p class="t-desc">This is a combined repository of all the lab exercise i have done for the
-                            dimensional modeling using tableau, ETL using
-                            Talend, AWS's Redshift, S4 bucket</p>
-                        <div class="p-tags">
-                            <span class="tag">AWS</span><span class="tag">ETL</span><span class="tag">Tableau</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="https://github.com/Khush-domadia/Data-Modeling" target="_blank"
-                                rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            This project contains a series of labs and practical exercises covering dimensional
-                            modeling, slowly changing
-                            dimensions, and advanced visualization and analytics in Tableau. The projects demonstrate
-                            end-to-end data warehouse
-                            design, big-data preparation, and interactive dashboard creation, illustrating both
-                            theoretical and hands-on skills
-                            required for modern data warehousing and business intelligence.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 7 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Gurobi's Buritto Game Optimization Model</h3>
-                        <p class="t-desc">This project is done using Gurobi optimization library, where i have analyzed
-                            Gurobi's burrito game and made model that
-                            can derive highest profit.</p>
-                        <div class="p-tags">
-                            <span class="tag">Python</span><span class="tag">Gurobi</span><span class="tag">Optimization
-                                Model</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary"
-                                href="https://github.com/Khush-domadia/Gurobis-Buritto-Game-Optimization-Model"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            This project implements a sophisticated optimization model to solve the Burrito Truck
-                            Location Problem using Python and
-                            the Gurobi optimization library. The model determines optimal truck locations to maximize
-                            profit while serving all
-                            demand nodes in a strategic facility location problem. The project explores multiple
-                            scenarios with varying cost
-                            structures to provide comprehensive business insights for decision-making.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 8 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Germany's Energy Consumption Forecast</h3>
-                        <p class="t-desc">In this project I have used time series data of electricity consumption and
-                            based on that forecasted future data.</p>
-                        <div class="p-tags">
-                            <span class="tag">R</span><span class="tag">Data Forecasting</span><span
-                                class="tag">Holt-Winters Exponential Smoothing</span>
-                            <span class="tag">Moving Average on Residuals</span><span class="tag">ARIMA Models</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary"
-                                href="https://github.com/Khush-domadia/Germanys-Energy-Consumption-Forecast"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            This project focuses on forecasting Germany's weekly electricity consumption using various
-                            time series modeling
-                            techniques. The analysis utilizes publicly available data from Open Power System Data (OPSD)
-                            spanning from 2006 to 2017,
-                            implementing multiple forecasting approaches to identify the most accurate model for energy
-                            planning and policy
-                            decision-making.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 9 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Taiwan Credit Card Crisis Analysis</h3>
-                        <p class="t-desc">Forecasting credit card defaults using classical ML.</p>
-                        <div class="p-tags">
-                            <span class="tag">Python</span><span class="tag">Pandas</span><span
-                                class="tag">scikit‑learn</span><span class="tag">Logistic Regression</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary"
-                                href="https://github.com/Khush-domadia/Taiwan-2005-Credit-Card-crisis-analysis"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            Built data pipeline, engineered features, and trained logistic regression to reach ~82%
-                            accuracy for default prediction. Delivered interpretable insights for risk teams and
-                            documented methodology and metrics.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 10 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Time Series Forecasting</h3>
-                        <p class="t-desc">This is the time series forecast project where I have used Amtrak ridership
-                            data and Walmart's revenue data and had done
-                            forecasting using R.</p>
-                        <div class="p-tags">
-                            <span class="tag">R</span><span class="tag">Data Forecasting</span><span
-                                class="tag">Forecast library</span>
-                            <span class="tag">Zoo library</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="https://github.com/Khush-domadia/Time-Series-Forecasting"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            This project contains three comprehensive case studies demonstrating time series forecasting
-                            techniques in R using
-                            the forecast and zoo packages. Each case study covers data preprocessing, exploratory
-                            analysis, model building,
-                            validation, and future forecasting for different real-world datasets.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 11 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Statistical Modeling & Prediction</h3>
-                        <p class="t-desc">End‑to‑end regression workflow with decision support visuals.</p>
-                        <div class="p-tags">
-                            <span class="tag">Python</span><span class="tag">Seaborn</span><span
-                                class="tag">Tableau</span><span class="tag">Regression</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="https://github.com/Khush-domadia/Statistical-Modeling"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            Trained and validated regression models to predict business trends; published dashboards for
-                            stakeholders, emphasizing feature importance and scenario analysis.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Project 12 -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">Business Optimization Model</h3>
-                        <p class="t-desc">A comprehensive repository of all the case studies I have done on the Business
-                            Optimization using Gurobi's
-                            library</p>
-                        <div class="p-tags">
-                            <span class="tag">Python</span><span class="tag">Seaborn</span><span
-                                class="tag">Gurobi</span><span class="tag">Regression</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn primary" href="https://github.com/Khush-domadia/Business-Optimization-Model"
-                                target="_blank" rel="noopener">GitHub</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            Trained and validated regression models to predict business trends; published dashboards for
-                            stakeholders, emphasizing feature importance and scenario analysis.
-                        </div>
-                    </details>
-                </article>
-
-                <!-- Placeholder to curate more repos -->
-                <article class="p-card">
-                    <div class="p-body">
-                        <h3 class="p-title">More Projects</h3>
-                        <p class="t-desc">Explore additional analytics and ML work.</p>
-                        <div class="p-tags">
-                            <span class="tag">Dashboards</span><span class="tag">ETL</span><span class="tag">ML</span>
-                        </div>
-                        <div class="p-actions">
-                            <a class="btn" href="https://github.com/Khush-domadia?tab=repositories" target="_blank"
-                                rel="noopener">Browse Repos</a>
-                        </div>
-                    </div>
-                    <details class="p-details">
-                        <summary>More details</summary>
-                        <div class="p-content">
-                            Link specific repositories here and add short takeaways: the problem, approach, stack, and
-                            measurable impact or metrics.
-                        </div>
-                    </details>
-                </article>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="section-card contact">
-                <p>Open to full‑time roles and internships. Let’s connect.</p>
-                <div class="link-row">
-                    <a class="pill" href="mailto:domadiyakhush05@gmail.com" aria-label="Email">
-                        <span>domadiyakhush05@gmail.com</span>
-                    </a>
-                    <a class="pill" href="https://www.linkedin.com/in/khush-domadiya" target="_blank"
-                        rel="noopener">LinkedIn</a>
-                    <a class="pill" href="https://github.com/Khush-domadia" target="_blank" rel="noopener">GitHub</a>
-                    <a class="pill" href="assets/Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container" style="padding:0;">
-                © <span id="year"></span> Khush Domadiya ·
-            </div>
-        </footer>
+      <footer class="footer">
+        <span>© <span id="year"></span> Khush Domadiya</span>
+      </footer>
     </main>
 
-    <script>
-        // Current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
+    <!-- MODAL (used for project details; prevents layout shift) -->
+    <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-head">
+          <div>
+            <div id="modalKicker" class="kicker"></div>
+            <h3 id="modalTitle" class="modal-title"></h3>
+          </div>
+          <button id="modalClose" class="icon-btn" aria-label="Close details">✕</button>
+        </div>
 
+        <div class="modal-body">
+          <p id="modalSummary" class="modal-summary"></p>
 
-</html
+          <div class="modal-grid">
+            <div>
+              <h4 class="h4">Highlights</h4>
+              <ul id="modalHighlights" class="bullets"></ul>
+            </div>
 
+            <div>
+              <h4 class="h4">Tools</h4>
+              <div id="modalTags" class="chips"></div>
 
+              <h4 class="h4" style="margin-top: 14px;">Links</h4>
+              <div id="modalLinks" class="modal-links"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-
-
-
-
+    <script src="app.js"></script>
+  </body>
+</html>
