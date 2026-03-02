@@ -23,18 +23,18 @@ const experience = [
     ]
   },
   {
-    role: "Python Analyst Intern",
+    role: "Python Analyst",
     org: "Axisray — India",
-    date: "Jan 2024 – May 2024",
+    date: "Jan 2024 – June 2024",
     bullets: [
       "Built Python-based automation and reports to improve reliability and reduce manual effort.",
       "Cleaned/validated datasets and produced insights to support internal decision-making."
     ]
   },
   {
-    role: "Data Science & Machine Learning Intern",
+    role: "Data Science & Machine Learning Engineer",
     org: "BrainyBeams — India",
-    date: "Jul 2023 – Aug 2023",
+    date: "Jul 2023 – December 2023",
     bullets: [
       "Explored ML workflows (data prep → modeling → evaluation) and documented outcomes.",
       "Collaborated on experiments and presented findings with clear visuals and notes."
