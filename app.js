@@ -18,8 +18,8 @@ const experience = [
     org: "California State University, East Bay — Hayward, CA",
     date: "Sep 2024 – Present",
     bullets: [
-      "Supported academic operations and reporting; maintained accurate documentation and process hygiene.",
-      "Collaborated with staff/students to resolve requests efficiently and communicate updates clearly."
+      "Analyzed student registration data using Excel to identify trends in attendance and preferences; developed event plans that boosted participation by 35%.",
+      "Collected and processed student feedback surveys post-events; generated reports highlighting key themes to refine product strategies and improve satisfaction scores."
     ]
   },
   {
