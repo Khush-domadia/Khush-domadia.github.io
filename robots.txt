@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khush-domadia.github.io/sitemap.xml
